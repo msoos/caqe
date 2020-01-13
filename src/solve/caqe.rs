@@ -643,6 +643,7 @@ impl SatAndTranslation {
     fn new(_matrix: &QMatrix) -> Self {
         let mut sat = cryptominisat::Solver::new();
         sat.set_num_threads(1);
+        sat.set_verbosity(0);
         Self {
             sat,
             variable_to_sat: FxHashMap::default(),

@@ -798,6 +798,7 @@ impl Abstraction {
     ) -> Self {
         let mut sat = cryptominisat::Solver::new();
         sat.set_num_threads(1);
+        sat.set_verbosity(0);
         let is_max_level = scope_id.map_or(false, |scope_id| {
             let scope = &matrix.prefix.scopes[scope_id];
             matrix.prefix.is_maximal(scope)
